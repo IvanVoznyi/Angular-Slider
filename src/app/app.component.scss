@@ -1,0 +1,80 @@
+:host {
+  height: calc(100vh - 16px);
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+.left-arrow,
+.right-arrow {
+  display: flex;
+  align-items: center;
+  margin: 10px;
+  width: 40px;
+  cursor: pointer;
+}
+ul {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  list-style: none;
+  padding: 0;
+  height: 500px;
+  width: 800px;
+  li {
+    position: absolute;
+    top: 0;
+    img {
+      height: 500px;
+      width: 800px;
+    }
+  }
+}
+
+h1 {
+  position: absolute;
+  color: white;
+  font-size: 100px;
+  margin: 5px;
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+}
+
+.slide {
+  z-index: -1;
+}
+
+.slide-current {
+  z-index: 0;
+}
+
+.slide-right {
+  z-index: 1;
+  clip-path: inset(0 0 0 100%);
+  animation: 1s slideRight;
+}
+
+.slide-left {
+  z-index: 1;
+  clip-path: inset(0 100% 0 0);
+  animation: 1s slideLeft;
+}
+
+@keyframes slideLeft {
+  0% {
+    clip-path: inset(0);
+  }
+
+  100% {
+    clip-path: inset(0 100% 0 0);
+  }
+}
+
+@keyframes slideRight {
+  0% {
+    clip-path: inset(0);
+  }
+
+  100% {
+    clip-path: inset(0 0 0 100%);
+  }
+}
